@@ -1,0 +1,24 @@
+﻿<Window x:Class="MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="300">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Выберите арифметическую операцию"></TextBlock>
+            <ComboBox Name="arithmeticOperation"></ComboBox>
+            <WrapPanel HorizontalAlignment="Center" Margin="5">
+                <TextBox Name="firstNumber" Width="50"></TextBox>
+                <TextBlock Name="operationSymbol" Margin="20,0,20,0"></TextBlock>
+                <TextBox Name="secondNumber" Width="50"></TextBox>
+            </WrapPanel>
+            <Button Name="calculateAnswer" Content="Вычислить" Width="100"></Button>
+            <GroupBox Header="Результат:">
+                <TextBox Name="answerBox"></TextBox>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>
