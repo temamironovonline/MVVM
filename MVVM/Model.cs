@@ -1,32 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Windows;
 
 namespace MVVM
 {
     internal class Model
     {
-        public static List<string> ariphmeticOperation = new() { "Сложение", "Вычитание", "Умножение", "Деление" };
+        public List<string> ariphmeticOperation = new() { "Сложение", "Вычитание", "Умножение", "Деление" };
+        public List<string> ariphmeticOperationSign = new() { "+", "-", "*", "/" };
 
-        private double _firstNumber, _secondNumber, _ariphmeticOperationPosition;
-        
-        public double FirstNumber 
-        { 
-            set { _firstNumber = value; }
-        }
+        private double _firstNumber = 0, _secondNumber = 0;
+        private int _ariphmeticOperationPosition = 0;
 
-        public double SecondNumber
+        public void SetNumbersAndIndex(double firstNumber, double secondNumber, int ariphmeticOperationPosition)
         {
-            set { _secondNumber = value; }
+            _firstNumber = firstNumber;
+            _secondNumber = secondNumber;
+            _ariphmeticOperationPosition = ariphmeticOperationPosition;
         }
 
-        public int AriphmeticOperationPosition
+        public double Answer // Подсчет ответа
         {
-            set { _ariphmeticOperationPosition = value; }
+            get
+            {
+                try
+                {
+                    switch (_ariphmeticOperationPosition)
+                    {
+                        case 0:
+                            return _firstNumber + _secondNumber;
+
+                        case 1:
+                            return _firstNumber - _secondNumber;
+
+                        case 2:
+                            return _firstNumber * _secondNumber;
+
+                        case 3:
+                            return _firstNumber / _secondNumber;
+
+                        default:
+                            return 0;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Что-то пошло не так");
+                    return 0;
+                }
+            }
         }
-
-
     }
 }

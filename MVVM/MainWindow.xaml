@@ -9,15 +9,15 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Выберите арифметическую операцию"></TextBlock>
-            <ComboBox Name="arithmeticOperation"></ComboBox>
+            <ComboBox Name="arithmeticOperation" ItemsSource="{Binding GetAriphmeticOperations}" SelectedIndex="{Binding SelectedIndex}"></ComboBox>
             <WrapPanel HorizontalAlignment="Center" Margin="5">
-                <TextBox Name="firstNumber" Width="50"></TextBox>
-                <TextBlock Name="operationSymbol" Margin="20,0,20,0"></TextBlock>
-                <TextBox Name="secondNumber" Width="50"></TextBox>
+                <TextBox Name="firstNumber" Width="50" Text="{Binding FirstNumber}"></TextBox>
+                <TextBlock Name="operationSymbol" Margin="20,0,20,0" Text="{Binding AriphmeticOperationIndex}"></TextBlock>
+                <TextBox Name="secondNumber" Width="50" Text="{Binding SecondNumber}"></TextBox>
             </WrapPanel>
-            <Button Name="calculateAnswer" Content="Вычислить" Width="100"></Button>
+            <Button Name="calculateAnswer" Content="Вычислить" Width="100" Command="{Binding Command}"></Button>
             <GroupBox Header="Результат:">
-                <TextBox Name="answerBox"></TextBox>
+                <TextBlock Name="answerBox" Text="{Binding GetAnswer}"></TextBlock>
             </GroupBox>
         </StackPanel>
     </Grid>
